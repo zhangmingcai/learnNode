@@ -6,6 +6,7 @@ function start(route, handle){
   function onRequest(req,res){
   	var pathname = urlPath.parse(req.url).pathname;
   	route(pathname, handle);
+  	console.log(2)
 	  res.writeHead(200,{"Content-Type":"text/plain"});
 	  res.write("Hello World");
 	  res.end();
