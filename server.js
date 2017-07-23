@@ -1,11 +1,11 @@
 var http = require('http');//使用内置nodejs内置的http模块
 var urlPath = require("url");
-function start(route){
+function start(route, handle){
   http.createServer(onRequest).listen(8888);
   console.log('服务器已经启动！');
   function onRequest(req,res){
   	var pathname = urlPath.parse(req.url).pathname;
-  	route(pathname);
+  	route(pathname, handle);
 	  res.writeHead(200,{"Content-Type":"text/plain"});
 	  res.write("Hello World");
 	  res.end();
